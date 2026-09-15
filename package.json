@@ -1,0 +1,17 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "author": "",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "mime": "^2.4.4",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "engines": {
+    "node": "24.x"
+  }
+}
