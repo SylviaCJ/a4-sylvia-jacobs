@@ -1,11 +1,9 @@
-const http = require( 'http' ),
-      fs   = require( 'fs' ),
-      // IMPORTANT: you must run `npm install` in the directory for this assignment
-      // to install the mime library if you're testing this on your local machine.
-      // On Render, make sure `npm install` is your build command.
-      mime = require( 'mime' ),
-      dir  = 'public/',
-      port = 3000
+import http from 'http'
+import fs from 'fs'
+import mime from 'mime'
+
+const dir  = 'src/'
+const port = 3001
 
 let appdata = [
   {id: 1, task: 'test task', creationDate: '2026-08-28', deadline: '2026-09-01', status: 'not started', timeToComplete: 3}
@@ -38,10 +36,10 @@ const handleGet = function( request, response ) {
     return
   }
   
-  const filename = dir + request.url.slice(1) 
+  const filename = request.url.slice(1) 
 
   if( request.url === '/' ) {
-    sendFile( response, 'public/index.html' )
+    sendFile( response, '/index.html' )
   }else{
     sendFile( response, filename )
   }
