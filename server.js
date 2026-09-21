@@ -2,8 +2,8 @@ import http from 'http'
 import fs from 'fs'
 import mime from 'mime'
 
-const dir  = 'src/'
-const port = 3001
+const dir = 'dist/'
+const port = process.env.PORT || 3001
 
 let appdata = [
   {id: 1, task: 'test task', creationDate: '2026-08-28', deadline: '2026-09-01', status: 'not started', timeToComplete: 3}
@@ -36,13 +36,9 @@ const handleGet = function( request, response ) {
     return
   }
   
-  const filename = request.url.slice(1) 
-
-  if( request.url === '/' ) {
-    sendFile( response, '/index.html' )
-  }else{
-    sendFile( response, filename )
-  }
+  const requestedPath = new URL(request.url, `http://${request.headers.host}`).pathname
+  const filename = requestedPath === '/' ? 'index.html' : requestedPath.slice(1)
+  sendFile(response, filename)
 }
 
 const handlePost = function( request, response ) {
@@ -125,9 +121,10 @@ const handleEdit = function(request, response) {
 
 
 const sendFile = function( response, filename ) {
-   const type = mime.getType( filename ) 
+  const requestedFile = dir + filename
+  const type = mime.getType( filename ) 
 
-   fs.readFile( filename, function( err, content ) {
+  fs.readFile( requestedFile, function( err, content ) {
 
      // if the error = null, then we've loaded the file successfully
      if( err === null ) {
@@ -146,4 +143,6 @@ const sendFile = function( response, filename ) {
    })
 }
 
-server.listen( process.env.PORT || port )
+server.listen(port, '0.0.0.0', function() {
+  console.log(`Server listening on port ${port}`)
+})
