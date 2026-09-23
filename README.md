@@ -2,7 +2,6 @@ Assignment 4 - Components
 
 ## a4 sylvia jacobs 
 
-render link
+https://a4-sylvia-jacobs.onrender.com
 
-
-I chose to re-implement assignment 2 using react because I have used it before. I did change the UI to use picocss because I liked how the ui looked on my assignment 3. The new tech did help, because I used previous code it was more work to remake everything in the new format but if I was making something from the beginning I would say its definetly easier to use this. I was able to do some stuff like making it so editingtask or addtask shows up, not both at once which I liked.
+I chose to re-implement assignment 2 using react because I have used it before. I did change the UI to use picocss because I liked how the ui looked on my assignment 3. The new tech did help, because I used previous code it was more work to remake everything in the new format but if I was making something from the beginning I would say its definetly easier to use this. I was able to do some stuff like making it so editingtask or addtask shows up, not both at once which I liked. Although I think because I had used react before it was easier than it might normally would have been. 
